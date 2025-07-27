@@ -117,51 +117,6 @@ export default function TaerisLanding() {
     
   ];
 
-  //  const items = [
-  //   {
-  //     title: "Tyler Durden",
-  //     image:
-  //       "https://images.unsplash.com/photo-1732310216648-603c0255c000?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-10 left-[20%] rotate-[-5deg]",
-  //   },
-  //   {
-  //     title: "The Narrator",
-  //     image:
-  //       "https://images.unsplash.com/photo-1697909623564-3dae17f6c20b?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-40 left-[25%] rotate-[-7deg]",
-  //   },
-  //   {
-  //     title: "Iceland",
-  //     image:
-  //       "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-5 left-[40%] rotate-[8deg]",
-  //   },
-  //   {
-  //     title: "Japan",
-  //     image:
-  //       "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-32 left-[55%] rotate-[10deg]",
-  //   },
-  //   {
-  //     title: "Norway",
-  //     image:
-  //       "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-20 right-[35%] rotate-[2deg]",
-  //   },
-  //   {
-  //     title: "New Zealand",
-  //     image:
-  //       "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-24 left-[45%] rotate-[-7deg]",
-  //   },
-  //   {
-  //     title: "Canada",
-  //     image:
-  //       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     className: "absolute top-8 left-[30%] rotate-[4deg]",
-  //   },
-  // ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f2d2bd]/20 via-white to-[#ffb0d7]/10 text-gray-800 overflow-x-hidden relative">
       {/* Floating Elements Background */}
@@ -181,7 +136,7 @@ export default function TaerisLanding() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-[#f2d2bd]/30 shadow-lg transition-all duration-300">
+      <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-[#f2d2bd]/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-3xl font-bold text-[#d40000] flex items-center gap-2">
             <Sparkles className="text-[#ffb0d7]" size={28} />
@@ -217,116 +172,54 @@ export default function TaerisLanding() {
           </button>
         </div>
 
-        {/* AMAZING Mobile Menu Overlay */}
+        {/* Modern Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-40">
-            {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/98 via-gray-900/95 to-black/98 backdrop-blur-2xl">
-              {/* Floating particles */}
-              <div className="absolute inset-0 overflow-hidden">
-                {[...Array(20)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-2 h-2 bg-[#ffb0d7]/80 rounded-full animate-bounce shadow-lg"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animationDelay: `${Math.random() * 3}s`,
-                      animationDuration: `${2 + Math.random() * 2}s`,
-                      boxShadow: '0 0 10px #ffb0d7'
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Gradient Orbs */}
-              <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-[#d40000]/60 to-[#ffb0d7]/40 rounded-full blur-2xl animate-pulse"></div>
-              <div className="absolute bottom-40 right-10 w-60 h-60 bg-gradient-to-r from-[#ffb0d7]/50 to-[#d40000]/30 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-[#d40000]/25 to-[#ffb0d7]/25 rounded-full blur-3xl animate-spin" style={{animationDuration: '10s'}}></div>
-            </div>
-
+          <div className="md:hidden fixed inset-0 z-40 bg-white">
             {/* Menu Content */}
-            <div className="relative z-10 h-full flex flex-col justify-center items-center px-8 py-20">
-              {/* Welcome Text */}
-              <div className="text-center mb-12 animate-fade-in">
-                <h2 className="text-4xl font-bold text-white mb-2 bg-gradient-to-r from-white to-[#ffb0d7] bg-clip-text text-transparent">
-                  Konnichiwa! 🌸
-                </h2>
-                <p className="text-white/70 text-lg">Where would you like to go?</p>
-              </div>
-
-              {/* Menu Items Grid */}
-              <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                {mobileMenuItems.map((item, index) => (
+            <div className="h-full flex flex-col pt-24 pb-8 px-6">
+              {/* Menu Items List */}
+              <div className="flex-1 space-y-1">
+                {["Home", "Menu", "Lounge", "Gaming", "Events", "Contact"].map((item, index) => (
                   <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.name.toLowerCase())}
-                    className="group relative p-6 rounded-3xl bg-white/15 backdrop-blur-xl border border-white/30 hover:bg-white/25 hover:border-[#ffb0d7]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-xl"
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className="w-full text-left p-5 rounded-2xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-[#ffb0d7]/10 hover:to-[#d40000]/10 border border-gray-200 hover:border-[#ffb0d7]/30 transition-all duration-300 transform hover:scale-[0.98] active:scale-95 group"
                     style={{
                       animationDelay: `${index * 0.1}s`,
-                      animation: 'slideInUp 0.6s ease-out forwards'
+                      animation: 'slideInRight 0.4s ease-out forwards'
                     }}
                   >
-                    {/* Gradient Background */}
-                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-60 transition-all duration-500`}></div>
-                    
-                    {/* Icon with floating animation */}
-                    <div className="relative z-10 text-white mb-3 transform group-hover:scale-110 transition-all duration-300 flex justify-center">
-                      <div className="p-3 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-[#ffb0d7]/30 border border-white/20 group-hover:border-[#ffb0d7]/50 transition-all duration-300 shadow-lg">
-                        {item.icon}
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl font-bold text-gray-800 group-hover:text-[#d40000] transition-colors duration-300">
+                        {item}
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#d40000] to-[#ffb0d7] flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                        <ChevronDown size={16} className="text-white rotate-[-90deg]" />
                       </div>
                     </div>
-                    
-                    {/* Text */}
-                    <div className="relative z-10 text-center">
-                      <h3 className="text-white font-bold text-lg mb-1 group-hover:text-[#ffb0d7] transition-colors duration-300">
-                        {item.name}
-                      </h3>
-                      <p className="text-white/60 text-sm group-hover:text-white/80 transition-colors duration-300">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Sparkle effect on hover */}
-                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-12">
-                      <Sparkles size={16} className="text-[#ffb0d7]" />
-                    </div>
                   </button>
                 ))}
               </div>
 
-              {/* Social Icons */}
-              <div className="flex gap-6 mt-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
-                {[Instagram, Twitter, Facebook].map((Icon, index) => (
-                  <button
-                    key={index}
-                    className="p-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20 hover:text-[#ffb0d7] transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-                  >
-                    <Icon size={24} />
-                  </button>
-                ))}
-              </div>
-
-              {/* Close hint */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/50 text-sm animate-pulse">
-                Tap anywhere to close
-              </div>
+              
             </div>
 
-            {/* Click outside to close */}
-            <div 
-              className="absolute inset-0 z-0" 
-              onClick={() => setIsMenuOpen(false)}
-            ></div>
+            {/* Decorative Elements */}
+            <div className="absolute top-20 right-6 w-20 h-20 bg-gradient-to-br from-[#ffb0d7]/20 to-[#d40000]/20 rounded-full blur-xl"></div>
+            <div className="absolute bottom-32 left-6 w-16 h-16 bg-gradient-to-br from-[#d40000]/20 to-[#ffb0d7]/20 rounded-full blur-lg"></div>
+            
+            {/* Sakura decoration */}
+            <div className="absolute top-32 left-8 text-[#ffb0d7] text-xl opacity-30">🌸</div>
+            <div className="absolute bottom-48 right-8 text-[#ffb0d7] text-lg opacity-40">🌸</div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-[#f2d2bd]/10 via-transparent to-[#ffb0d7]/5"></div>
 
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-6 flex-1 flex flex-col justify-center">
           <div className="space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-[#f2d2bd]/30 shadow-lg">
               <Heart className="text-[#ffb0d7]" size={20} />
@@ -368,8 +261,8 @@ export default function TaerisLanding() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* Scroll Indicator - Fixed positioning */}
+        <div className="relative z-10 pb-8 animate-bounce">
           <div className="bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg border border-[#f2d2bd]/30">
             <ChevronDown className="text-[#d40000]" size={24} />
           </div>
@@ -384,6 +277,17 @@ export default function TaerisLanding() {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
           }
         }
         
@@ -402,6 +306,7 @@ export default function TaerisLanding() {
           animation: fade-in 0.8s ease-out forwards;
         }
       `}</style>
+
 
       {/* Menu Section */}
       <section id="menu" className="py-24 relative">
