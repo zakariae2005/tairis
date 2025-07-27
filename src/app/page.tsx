@@ -309,7 +309,8 @@ export default function TaerisLanding() {
 
 
       {/* Menu Section */}
-      <section id="menu" className="py-24 relative">
+      
+<section id="menu" className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <Badge className="bg-[#ffb0d7]/20 text-[#d40000] border-[#ffb0d7]/40 mb-6 px-6 py-2 text-base rounded-full">
@@ -326,42 +327,42 @@ export default function TaerisLanding() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
   {[
     {
-      img:"/images/img1.PNG",
+      img:"/images/x1.jpeg",
       name: "Tonkotsu Ramen",
       description: "Rich pork bone broth with tender chashu and fresh noodles",
       price: "¥1,200",
       emoji: "🍜",
     },
     {
-      img:"/images/img2.PNG",
+      img:"/images/x2.jpeg",
       name: "Sushi Omakase",
       description: "Chef's selection of premium nigiri and seasonal specialties",
       price: "¥2,800",
       emoji: "🍣",
     },
     {
-      img:"/images/img7.PNG",
+      img:"/images/x3.jpeg",
       name: "Matcha Mochi Set",
       description: "Handmade mochi with premium matcha and red bean filling",
       price: "¥800",
       emoji: "🍡",
     },
     {
-      img:"/images/img4.PNG",
+      img:"/images/x4.jpeg",
       name: "Katsu Curry",
       description: "Crispy pork cutlet with Japanese curry and steamed rice",
       price: "¥1,400",
       emoji: "🍛",
     },
     {
-      img:"/images/img6.PNG",
+      img:"/images/x5.jpeg",
       name: "Takoyaki",
       description: "Osaka-style octopus balls with bonito flakes and sauce",
       price: "¥600",
       emoji: "🐙",
     },
     {
-      img:"/images/img5.PNG",
+      img:"/images/x6.jpeg",
       name: "Specialty Coffee",
       description: "Single-origin beans with Japanese brewing techniques",
       price: "¥500",
@@ -370,14 +371,14 @@ export default function TaerisLanding() {
   ].map((item, index) => (
     <Card
       key={index}
-      className="group bg-white/80 backdrop-blur-sm border-[#f2d2bd]/30 hover:border-[#ffb0d7]/50 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2"
+      className="group bg-white/80 backdrop-blur-sm border-[#f2d2bd]/30 hover:border-[#ffb0d7]/50 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 p-0"
     >
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#f2d2bd]/10 to-[#ffb0d7]/5 h-48">
+      <div className="relative overflow-hidden h-56">
         <Image
           src={item.img}
           alt={item.name}
           width={400}
-        height={300}
+          height={300}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
