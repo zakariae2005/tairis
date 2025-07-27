@@ -21,17 +21,32 @@ import {
   X,
   Heart,
   Sparkles,
+  Gamepad2,
+  Mail,
 } from "lucide-react"
 import Image from "next/image"
+import {
+  DraggableCardBody,
+  DraggableCardContainer,
+} from "@/components/ui/draggable-card";
 
 export default function TaerisLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentGameImageIndex, setCurrentGameImageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex(prev => (prev + 1) % 4); // Cycle through 0, 1, 2, 3, then back to 0
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentGameImageIndex(prev => (prev + 1) % 3); // Cycle through 0, 1, 2, 3, then back to 0
     }, 2000);
 
     return () => clearInterval(timer);
@@ -47,6 +62,46 @@ export default function TaerisLanding() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
   }
+
+ const mobileMenuItems = [
+    { 
+      name: "Home", 
+      icon: <Sparkles size={28} />, 
+      description: "Welcome back",
+      color: "from-[#0000] to-[#ffb0d7]"
+    },
+    { 
+      name: "Menu", 
+      icon: <Coffee size={28} />, 
+      description: "Taste paradise",
+      color: "from-[#ffb0d7] to-[#d40000]"
+    },
+    { 
+      name: "Lounge", 
+      icon: <Heart size={28} />, 
+      description: "Relax & enjoy",
+      color: "from-[#d40000] to-[#ffb0d7]"
+    },
+    { 
+      name: "Gaming", 
+      icon: <Gamepad2 size={28} />, 
+      description: "Play together",
+      color: "from-[#ffb0d7] to-[#d40000]"
+    },
+    { 
+      name: "Events", 
+      icon: <Calendar size={28} />, 
+      description: "Join the fun",
+      color: "from-[#d40000] to-[#ffb0d7]"
+    },
+    { 
+      name: "Contact", 
+      icon: <Mail size={28} />, 
+      description: "Get in touch",
+      color: "from-[#ffb0d7] to-[#d40000]"
+    }
+  ]
+
   
   const mangaImages = [
     { src: "/images/manga.jpg", alt: "manga 1" },
@@ -54,6 +109,58 @@ export default function TaerisLanding() {
     { src: "/images/manga3.jpeg", alt: "manga 3" },
     { src: "/images/manga4.jpeg", alt: "manga 4" }
   ];
+
+  const gameImages = [
+    { src: "/images/o1.jpeg", alt: "game 1" },
+    { src: "/images/o2.jpeg", alt: "game 2" },
+    { src: "/images/o3.jpeg", alt: "game 3" },
+    
+  ];
+
+  //  const items = [
+  //   {
+  //     title: "Tyler Durden",
+  //     image:
+  //       "https://images.unsplash.com/photo-1732310216648-603c0255c000?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-10 left-[20%] rotate-[-5deg]",
+  //   },
+  //   {
+  //     title: "The Narrator",
+  //     image:
+  //       "https://images.unsplash.com/photo-1697909623564-3dae17f6c20b?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-40 left-[25%] rotate-[-7deg]",
+  //   },
+  //   {
+  //     title: "Iceland",
+  //     image:
+  //       "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-5 left-[40%] rotate-[8deg]",
+  //   },
+  //   {
+  //     title: "Japan",
+  //     image:
+  //       "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-32 left-[55%] rotate-[10deg]",
+  //   },
+  //   {
+  //     title: "Norway",
+  //     image:
+  //       "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-20 right-[35%] rotate-[2deg]",
+  //   },
+  //   {
+  //     title: "New Zealand",
+  //     image:
+  //       "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-24 left-[45%] rotate-[-7deg]",
+  //   },
+  //   {
+  //     title: "Canada",
+  //     image:
+  //       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     className: "absolute top-8 left-[30%] rotate-[4deg]",
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f2d2bd]/20 via-white to-[#ffb0d7]/10 text-gray-800 overflow-x-hidden relative">
@@ -81,7 +188,7 @@ export default function TaerisLanding() {
             Taeris
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - UNCHANGED */}
           <div className="hidden md:flex space-x-8">
             {["Home", "Menu", "Lounge", "Gaming", "Events", "Contact"].map((item) => (
               <button
@@ -96,25 +203,121 @@ export default function TaerisLanding() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-[#d40000]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <button 
+            className="md:hidden relative z-50 p-2 rounded-full bg-gradient-to-r from-[#d40000] to-[#ffb0d7] text-white shadow-lg transform transition-all duration-300 hover:scale-110" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <div className="relative">
+              {isMenuOpen ? (
+                <X size={24} className="animate-spin" />
+              ) : (
+                <Menu size={24} className="animate-pulse" />
+              )}
+            </div>
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* AMAZING Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#f2d2bd]/30">
-            <div className="container mx-auto px-6 py-6 space-y-4">
-              {["Home", "Menu", "Lounge", "Gaming", "Events", "Contact"].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full text-left text-gray-700 hover:text-[#d40000] font-medium transition-colors duration-300"
-                >
-                  {item}
-                </button>
-              ))}
+          <div className="md:hidden fixed inset-0 z-40">
+            {/* Animated Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/98 via-gray-900/95 to-black/98 backdrop-blur-2xl">
+              {/* Floating particles */}
+              <div className="absolute inset-0 overflow-hidden">
+                {[...Array(20)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-2 h-2 bg-[#ffb0d7]/80 rounded-full animate-bounce shadow-lg"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 3}s`,
+                      animationDuration: `${2 + Math.random() * 2}s`,
+                      boxShadow: '0 0 10px #ffb0d7'
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Gradient Orbs */}
+              <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-[#d40000]/60 to-[#ffb0d7]/40 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute bottom-40 right-10 w-60 h-60 bg-gradient-to-r from-[#ffb0d7]/50 to-[#d40000]/30 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-[#d40000]/25 to-[#ffb0d7]/25 rounded-full blur-3xl animate-spin" style={{animationDuration: '10s'}}></div>
             </div>
+
+            {/* Menu Content */}
+            <div className="relative z-10 h-full flex flex-col justify-center items-center px-8 py-20">
+              {/* Welcome Text */}
+              <div className="text-center mb-12 animate-fade-in">
+                <h2 className="text-4xl font-bold text-white mb-2 bg-gradient-to-r from-white to-[#ffb0d7] bg-clip-text text-transparent">
+                  Konnichiwa! 🌸
+                </h2>
+                <p className="text-white/70 text-lg">Where would you like to go?</p>
+              </div>
+
+              {/* Menu Items Grid */}
+              <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+                {mobileMenuItems.map((item, index) => (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.name.toLowerCase())}
+                    className="group relative p-6 rounded-3xl bg-white/15 backdrop-blur-xl border border-white/30 hover:bg-white/25 hover:border-[#ffb0d7]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-xl"
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                      animation: 'slideInUp 0.6s ease-out forwards'
+                    }}
+                  >
+                    {/* Gradient Background */}
+                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-60 transition-all duration-500`}></div>
+                    
+                    {/* Icon with floating animation */}
+                    <div className="relative z-10 text-white mb-3 transform group-hover:scale-110 transition-all duration-300 flex justify-center">
+                      <div className="p-3 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-[#ffb0d7]/30 border border-white/20 group-hover:border-[#ffb0d7]/50 transition-all duration-300 shadow-lg">
+                        {item.icon}
+                      </div>
+                    </div>
+                    
+                    {/* Text */}
+                    <div className="relative z-10 text-center">
+                      <h3 className="text-white font-bold text-lg mb-1 group-hover:text-[#ffb0d7] transition-colors duration-300">
+                        {item.name}
+                      </h3>
+                      <p className="text-white/60 text-sm group-hover:text-white/80 transition-colors duration-300">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Sparkle effect on hover */}
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-12">
+                      <Sparkles size={16} className="text-[#ffb0d7]" />
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex gap-6 mt-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
+                {[Instagram, Twitter, Facebook].map((Icon, index) => (
+                  <button
+                    key={index}
+                    className="p-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20 hover:text-[#ffb0d7] transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+                  >
+                    <Icon size={24} />
+                  </button>
+                ))}
+              </div>
+
+              {/* Close hint */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/50 text-sm animate-pulse">
+                Tap anywhere to close
+              </div>
+            </div>
+
+            {/* Click outside to close */}
+            <div 
+              className="absolute inset-0 z-0" 
+              onClick={() => setIsMenuOpen(false)}
+            ></div>
           </div>
         )}
       </nav>
@@ -172,6 +375,33 @@ export default function TaerisLanding() {
           </div>
         </div>
       </section>
+       <style jsx>{`
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 0.8s ease-out forwards;
+        }
+      `}</style>
 
       {/* Menu Section */}
       <section id="menu" className="py-24 relative">
@@ -340,13 +570,55 @@ export default function TaerisLanding() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 lg:order-1">
               <div className="absolute -top-6 -left-6 w-full h-full bg-gradient-to-br from-[#d40000]/10 to-[#ffb0d7]/10 rounded-3xl"></div>
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-[#f2d2bd]/30">
-                <div className="text-center space-y-6">
-                  <div className="text-8xl">🎮</div>
-                  <h3 className="text-2xl font-bold text-gray-800">Gaming Zone</h3>
-                  <p className="text-gray-600">Play the latest games on premium PlayStation setups</p>
+              
+                
+                   <div className="relative h-[600px] overflow-hidden rounded-2xl">
+                  {gameImages.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image.src}
+                      alt={image.alt}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+                        index === currentGameImageIndex 
+                          ? 'opacity-100 transform scale-100' 
+                          : 'opacity-0 transform scale-105'
+                      }`}
+                    />
+                  ))}
+                  
+                  {/* Optional: Add dots indicator */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    {gameImages.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          index === currentGameImageIndex 
+                            ? 'bg-[#d40000] scale-125' 
+                            : 'bg-white/50'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
+                  
+                {/* <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
+      <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
+        If its your first day at Fight Club, you have to fight.
+      </p>
+      {items.map((item) => (
+        <DraggableCardBody className={item.className} key={item.title}>
+          <img
+            src={item.image}
+            alt={item.title}
+            className="pointer-events-none relative z-10 h-80 w-80 object-cover"
+          />
+          <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">
+            {item.title}
+          </h3>
+        </DraggableCardBody>
+      ))}
+    </DraggableCardContainer> */}
+              
               <div className="absolute -bottom-4 -right-4 bg-[#d40000] p-4 rounded-full shadow-xl animate-pulse">
                 <GamepadIcon className="text-white" size={32} />
               </div>
@@ -639,3 +911,6 @@ export default function TaerisLanding() {
     </div>
   )
 }
+
+
+
